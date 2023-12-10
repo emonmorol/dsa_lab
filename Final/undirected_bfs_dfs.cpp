@@ -42,7 +42,7 @@ class Graph {
 
         while (!q.empty()) {
             int currVertex = q.front();
-            cout << "Visited " << currVertex << endl;
+            cout << currVertex << " ";
             q.pop();
 
             for (i = adjLists[currVertex].begin(); i != adjLists[currVertex].end(); ++i) {
@@ -53,6 +53,7 @@ class Graph {
                 }
             }
         }
+        cout << endl;
     }
 };
 
@@ -67,12 +68,13 @@ int main() {
     g.DFS(2);
     cout << endl;
 
-    Graph g2(5);
+    Graph g2(6);
     g2.addEdge(0, 1);
     g2.addEdge(0, 2);
     g2.addEdge(0, 3);
     g2.addEdge(1, 2);
     g2.addEdge(2, 4);
+    g2.addEdge(1, 5);
 
     g2.BFS(2);
 
