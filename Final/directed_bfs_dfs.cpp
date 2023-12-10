@@ -1,3 +1,5 @@
+// author: ekramul11
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -54,6 +56,10 @@ class Graph {
                 dfs(i);
             }
         }
+    }
+    ~Graph(){
+        delete[] adj_lists;
+        delete[] visited;
     }
 };
 

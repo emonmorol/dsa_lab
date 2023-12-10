@@ -1,3 +1,5 @@
+// author: ekramul11
+
 #include <bits/stdc++.h>
 
 #include <iostream>
