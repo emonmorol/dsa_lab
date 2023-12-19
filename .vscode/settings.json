@@ -1,7 +1,10 @@
 {
     "files.associations": {
         "random": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp"
     },
     "cmake.configureOnOpen": false
 }
