@@ -26,7 +26,7 @@ private:
         }
 
         Node* newNode = new Node(value);
-        
+
         cout << "Enter left child for " << value << ": ";
         newNode->left = insertRecursive();
 
@@ -46,7 +46,6 @@ private:
         root = insertRecursive();
     }
 
-    // Example: Inorder Traversal
     void inorderTraversal(Node* root) {
         if (root != nullptr) {
             inorderTraversal(root->left);

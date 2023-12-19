@@ -17,23 +17,18 @@ class BST {
 private:
     Node* root;
 
-    Node* insertRecursive() {
-        int value;
-        cin >> value;
-
-        if (value == -1) {
-            return nullptr;
+    Node* insertRecursive(Node* root, int value) {
+        if (root == nullptr) {
+            return new Node(value);
         }
 
-        Node* newNode = new Node(value);
-        
-        cout << "Enter left child for " << value << ": ";
-        newNode->left = insertRecursive();
+        if (value < root->data) {
+            root->left = insertRecursive(root->left, value);
+        } else if (value > root->data) {
+            root->right = insertRecursive(root->right, value);
+        }
 
-        cout << "Enter right child for " << value << ": ";
-        newNode->right = insertRecursive();
-
-        return newNode;
+        return root;
     }
 
    public:
@@ -41,9 +36,8 @@ private:
         root = nullptr;
     }
 
-    void createBinaryTree() {
-        cout << "Enter root value (-1 for null): ";
-        root = insertRecursive();
+    void insert(int value) {
+        root = insertRecursive(root, value);
     }
 
     // Example: Inorder Traversal
@@ -89,7 +83,13 @@ private:
 int main() {
     BST bst;
 
-    bst.createBinaryTree();
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        bst.insert(x);
+    }
     
     // Printing inorder traversal of the BST
     cout << "Inorder Traversal of the BST: ";

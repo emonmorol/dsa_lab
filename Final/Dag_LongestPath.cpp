@@ -8,7 +8,7 @@ class Graph {
     list<int> *adj_lists;
     bool *visited;
 
-   public:
+public:
     Graph(int n) {
         v = n;
         adj_lists = new list<int>[v];
@@ -39,6 +39,7 @@ class Graph {
         }
         return q;
     }
+
 
     int longest_path(int s, int d) {
         stack<int> order = topological_order(s);
@@ -77,11 +78,6 @@ int main() {
     cin >> s >> d;
     int dst = g.longest_path(s, d);
     cout << dst << endl;
-    // for (int i = 0; i < n; i++) {
-    //     if (i != s and dist[i] != INT_MIN) {
-    //         cout << s << " -> " << i << " = " << dist[i] << endl;
-    //     }
-    // }
 
     return 0;
 }

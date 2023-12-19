@@ -20,7 +20,7 @@ public:
         parent = new int[n];
     }
 
-    void addEdge(int src, int dest) {
+    void edge(int src, int dest) {
         adjLists[src].push_front(dest);
         adjLists[dest].push_front(src);
     }
@@ -66,15 +66,17 @@ public:
 };
 
 int main() {
-    Graph g2(6);
-    g2.addEdge(0, 1);
-    g2.addEdge(0, 2);
-    g2.addEdge(0, 3);
-    g2.addEdge(1, 2);
-    g2.addEdge(2, 4);
-    g2.addEdge(1, 5);
+    
+    int n, e;
+    cin >> n >> e;
+    Graph g(n);
+    for (int i = 0; i < e; i++) {
+        int x, y;
+        cin >> x >> y;
+        g.edge(x, y);
+    }
 
-    list<int> path = g2.shortest_path(1, 4);
+    list<int> path = g.shortest_path(4, 5);
 
     cout << path.size() - 1 << endl;
     for (int a : path) {
