@@ -1,6 +1,7 @@
 // author: ekramul11
 
-#include <bits/stdc++.h>
+#include <queue>
+#include<list>
 
 #include <iostream>
 using namespace std;
@@ -20,17 +21,18 @@ class Graph {
         adjLists[src].push_front(dest);
         adjLists[dest].push_front(src);
     }
+
     void DFS(int vertex) {
         visited[vertex] = true;
         list<int> adjList = adjLists[vertex];
 
         cout << vertex << " ";
 
-        list<int>::iterator i;
-        for (i = adjList.begin(); i != adjList.end(); ++i)
-            if (!visited[*i])
-                DFS(*i);
+        for (int adjNode:adjLists[vertex])
+            if (!visited[adjNode])
+                DFS(adjNode);
     }
+    
     void BFS(int startVertex) {
         for (int i = 0; i < numVertices; i++)
             visited[i] = false;

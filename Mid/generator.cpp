@@ -11,8 +11,8 @@ const int N = 1e5 + 5;
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-    int x = 16;
-    while (x <= 53) {
+    int x = 612;
+    while (x <= 617) {
         if (x % 2 != 0) cout << x << ",";
         x++;
     }

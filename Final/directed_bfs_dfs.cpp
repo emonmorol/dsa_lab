@@ -19,7 +19,8 @@ class Graph {
         adj_lists[x].push_back(y);
     }
 
-    void bfs(int node) {
+    // BFS Helper
+    void bfs_helper(int node){
         visited[node] = true;
 
         queue<int> q;
@@ -36,24 +37,34 @@ class Graph {
                 }
             }
         }
+    }
+
+    void bfs(int node) {
+        bfs_helper(node);
         for(int i = 0; i<v;i++){
             if(!visited[i]){
-                bfs(i);
+                bfs_helper(i);
+            }
+        }
+    }
+
+    // Depth First Search
+    void dfs_helper(int node){
+        visited[node] = true;
+        cout << node << " ";
+        for(int adjNode: adj_lists[node]){
+            if(!visited[adjNode]){
+                dfs_helper(adjNode);
             }
         }
     }
 
     void dfs(int node){
-        visited[node] = true;
-        cout << node << " ";
-        for(int adjNode: adj_lists[node]){
-            if(!visited[adjNode]){
-                dfs(adjNode);
-            }
-        }
+        dfs_helper(node);
+
         for(int i = 0; i<v;i++){
             if(!visited[i]){
-                dfs(i);
+                dfs_helper(i);
             }
         }
     }
